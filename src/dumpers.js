@@ -48,13 +48,25 @@ var SOSI = window.SOSI || {};
             });
         },
         getLines: function() {
-            return this.getByType(ns.Line);
+            return _.map(
+                this.getByType(ns.LineString),
+                this.createGeoJsonFeature,
+                this
+            );
         },
         getPolygons: function() {
-            return this.getByType(ns.Polygon);
+            return _.map(
+                this.getByType(ns.Polygon),
+                this.createGeoJsonFeature,
+                this
+            );
         },
         getPoints: function() {
-            return this.getByType(ns.Point);
+            return _.map(
+                this.getByType(ns.Point),
+                this.createGeoJsonFeature,
+                this
+            );
         },
         createGeoJsonFeature: function (sosifeature) {
             return {
