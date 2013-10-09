@@ -59,8 +59,17 @@ Usage
     //get feature by ID:
     var feature1 = sosidata.features.getById(200);
 
-    //get as GeoJSON
+    //get all features as GeoJSON
     var geojson = sosidata.dumps("geojson");
+    
+    // get lines as GeoJSON
+    var geojson = sosidata.dumps("geojson", "lines");
+    
+    // get points as GeoJSON
+    var geojson = sosidata.dumps("geojson", "points");
+    
+    // get polygons as GeoJSON
+    var geojson = sosidata.dumps("geojson", "polygons");
 
     //get as TopoJSON (non-quantized for now)
     var geojson = sosidata.dumps("topojson", "name_of_objects");
