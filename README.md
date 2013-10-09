@@ -1,7 +1,7 @@
 sosi.js
 =======
 
-Library to read SOSI files in Javascript. This is a fork of [this project](http://github.com/atlefren/sosi.js) made to be compatible with web workers and some added functionality.
+Library to read SOSI files in Javascript. This is a fork of [this project](http://github.com/atlefren/sosi.js) made to be compatible with web workers and some added functionality like only exporting lines, polygons or points.
 
 Status
 ------
