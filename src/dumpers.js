@@ -14,6 +14,7 @@ var SOSI = window.SOSI || {};
         },
 
         dumps: function (type) {
+            var type = type[0];
             switch (type) {
                 case "lines":
                 var features = this.getLines();
