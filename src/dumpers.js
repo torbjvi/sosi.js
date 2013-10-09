@@ -13,10 +13,24 @@ var SOSI = window.SOSI || {};
             this.sosidata = sosidata;
         },
 
-        dumps: function () {
+        dumps: function (type) {
+            switch (type) {
+                case "lines":
+                var features = this.getLines();
+                break;
+                case "polygons":
+                var features = this.getPolygons();
+                break;
+                case "points":
+                var features = this.getPoints();
+                break;
+                default:
+                var features = this.getFeatures();
+                break;
+            }
             return {
                 "type": "FeatureCollection",
-                "features": this.getFeatures(),
+                "features": features,
                 "crs": this.writeCrs()
             };
         },
@@ -28,7 +42,20 @@ var SOSI = window.SOSI || {};
                 this
             );
         },
-
+        getByType: function (type) {
+             return _.filter(this.sosidata.features.all(), function (feature) {
+                return (feature.geometry instanceof type);
+            });
+        },
+        getLines: function() {
+            return this.getByType(ns.Line);
+        },
+        getPolygons: function() {
+            return this.getByType(ns.Polygon);
+        },
+        getPoints: function() {
+            return this.getByType(ns.Point);
+        },
         createGeoJsonFeature: function (sosifeature) {
             return {
                 "type": "Feature",
