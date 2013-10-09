@@ -1,4 +1,3 @@
-var SOSI = window.SOSI || {};
 
 (function (ns, undefined) {
     "use strict";

@@ -1,4 +1,4 @@
-var SOSI = window.SOSI || {};
+var SOSI = {};
 
 /**
  * This is adopted from backbone.js which
